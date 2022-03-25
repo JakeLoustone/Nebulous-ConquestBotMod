@@ -44,7 +44,7 @@ namespace ConquestBotMod
                 streamWriter.WriteLine("    \"teams\": [");
                 foreach (Game.AfterActionReport.TeamReport teamReport in AAR.Teams)
                 {
-                    streamWriter.WriteLine("        \"" + teamReport.TeamID.ToString().ToLower() + "\": {");
+                    streamWriter.WriteLine("        {\"" + teamReport.TeamID.ToString().ToLower() + "\": {");
                     foreach (Game.AfterActionReport.PlayerReport playerReport in teamReport.Players)
                     {
                         streamWriter.WriteLine("            \"" + playerReport.PlayerName.ToLower() + "\": {");
@@ -102,7 +102,7 @@ namespace ConquestBotMod
                         }
                         streamWriter.WriteLine("            }" + ((teamReport.Players.IndexOf(playerReport) == teamReport.Players.Count - 1) ? "" : ","));
                     }
-                    streamWriter.WriteLine("        }" + ((AAR.Teams.IndexOf(teamReport) == AAR.Teams.Count - 1) ? "" : ","));
+                    streamWriter.WriteLine("        }}" + ((AAR.Teams.IndexOf(teamReport) == AAR.Teams.Count - 1) ? "" : ","));
                 }
                 streamWriter.WriteLine("    ]");
                 streamWriter.WriteLine("}");
